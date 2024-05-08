@@ -2,6 +2,7 @@ import requests
 from twilio.rest import Client
 import twilio_data
 
+
 openweather_url = "https://api.openweathermap.org/data/2.5/forecast"
 api_key = "2329e57a9b4140c1c5f5e5dc1ca06a5d"
 api_params = {
@@ -22,9 +23,10 @@ for hour_data in weather_data:
             will_rain = True
 
 if will_rain:
-    client = Client(twilio_data.TWILIO_ACCOUNT_SID, twilio_data.TWILIO_AUTH_TOKEN)
-    message = client.messages \
-        .create(
+    account_sid = twilio_data.TWILIO_ACCOUNT_SID
+    auth_token = twilio_data.TWILIO_AUTH_TOKEN
+    client = Client(account_sid,auth_token)
+    message = client.messages.create(
         body='Its going to rain today. Remember to bring an Umbrella ☔☔',
         from_=twilio_data.TWILIO_NUMBER,
         to=twilio_data.MY_NUMBER
