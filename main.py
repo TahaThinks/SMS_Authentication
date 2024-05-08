@@ -27,7 +27,7 @@ if will_rain:
     auth_token = twilio_data.TWILIO_AUTH_TOKEN
     client = Client(account_sid,auth_token)
     message = client.messages.create(
-        body='Its going to rain today. Remember to bring an Umbrella ☔☔',
+        body='Its going to rain today in Brazil. Remember to bring an Umbrella ☔☔',
         from_=twilio_data.TWILIO_NUMBER,
         to=twilio_data.MY_NUMBER
     )
